@@ -1,0 +1,69 @@
+{% extends "main.html" %}
+{% block content %}
+	<div class="row top-menu">
+		<div class="col-md-10"></div>
+		<div class="col-md-2 text-right">
+			<a href="{{url_for('showLogin')}}">Click Here to Log in </a>
+		</div>
+	</div>
+	<div class="row divider blue">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner main">
+		<div class="col-md-1"></div>
+		<div class="col-md-11 padding-none">
+			<h1><font color="#FFCC66">Places for visits</font></h1>
+		</div>
+	</div>
+
+	<div class = 'flash'>
+		      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+
+
+	
+	<div class="row padding-top padding-bottom">
+		<div class="col-md-1"></div>
+		<div class="col-md-10 padding-none"></div>
+		<div class="col-md-1"></div>
+	</div>
+
+	<div class = "row">
+		<div class ="col-md-5">
+		<h3> <b> Categories </b></h3>
+		{% for category in categorys %}
+			<a href = "{{url_for('showCategoryItems', category_id = category.id)}}">
+				<div class="col-md-1"></div>
+					<div class="category-list">
+						<h3>{{category.name}}</h3>
+					</div>
+				<div class="col-md-1"></div>
+			</a>
+		{% endfor %}
+		</div>
+
+		<div class ="col-md-7">
+		<h3> <b> Latest added items </b></h3>
+		{% for item in latest_items %}
+			<a href = "{{url_for('showItem', category_id = item.category_id, item_id= item.id)}}">
+				<div class="col-md-1"></div>
+					<div class="category-list">
+						<h3>{{item.name}}<font color="#C0C0C0">&nbsp<i>({{item.category.name}})</i></font></h3>
+					</div>
+				<div class="col-md-1"></div>
+			</a>
+		{% endfor %}
+		</div>
+	</div>
+	
+{% endblock %}
