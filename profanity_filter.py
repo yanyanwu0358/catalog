@@ -8,6 +8,7 @@ print word
 >>slut
 """
 import re
+import os
 
 current_file_path = __file__
 current_file_dir = os.path.dirname(__file__)
