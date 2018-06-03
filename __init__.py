@@ -1,4 +1,4 @@
-from places import app as application
+from catalog.places import app as application
 
 if __name__ == "__main__":
     application.secret_key = 'AKIAJ4UJCKHR4TOLPJRQ'
