@@ -98,7 +98,7 @@ class VisitorVoting(Base):
         }
 
 
-create_engine('postgresql://catalog:password@localhost/categoryitemwithusers')
+engine = create_engine('postgresql://catalog:password@localhost/categoryitemwithusers')
 
 
 Base.metadata.create_all(engine)
