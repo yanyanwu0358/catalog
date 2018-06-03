@@ -23,7 +23,7 @@ from functools import wraps
 app = Flask(__name__)
 
 CLIENT_ID = json.loads(
-    open('/var/www/catalog/calalog/client_secrets.json', 'r').read())['web']['client_id']
+    open('/catalog/calalog/client_secrets.json', 'r').read())['web']['client_id']
 APPLICATION_NAME = "Places to visit Application"
 
 
