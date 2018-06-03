@@ -98,7 +98,7 @@ class VisitorVoting(Base):
         }
 
 
-engine = create_engine('sqlite:///categoryitemwithusers.db',connect_args={'check_same_thread':False})
+create_engine('postgresql://catalog:password@localhost/categoryitemwithusers')
 
 
 Base.metadata.create_all(engine)
