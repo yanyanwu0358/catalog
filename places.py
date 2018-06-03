@@ -28,7 +28,7 @@ APPLICATION_NAME = "Places to visit Application"
 
 
 # Connect to Database and create database session
-engine = create_engine('sqlite:///categoryitemwithusers.db',connect_args={'check_same_thread':False})
+engine = create_engine('postgresql://catalog:password@localhost/categoryitemwithusers')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
