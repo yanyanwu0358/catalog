@@ -27,10 +27,11 @@ current_file_dir = os.path.dirname(__file__)
 google_file_path = os.path.join(current_file_dir, "client_secrets.json")
 fb_file_path = os.path.join(current_file_dir, "fb_client_secrets.json")
 
+img_file_path = os.path.join(current_file_dir, "static/images")
+
 CLIENT_ID = json.loads(
     open(google_file_path, 'r').read())['web']['client_id']
 APPLICATION_NAME = "Places to visit Application"
-
 
 # Connect to Database and create database session
 engine = create_engine('postgresql://catalog:password@localhost/categoryitemwithusers')
@@ -492,7 +493,7 @@ def newItem(category_id):
 
         print("missing_fields last =", missing_fields)
         if(missing_fields == ''):
-            UPLOAD_FOLDER = './static/images'
+            UPLOAD_FOLDER = img_file_path
             app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
@@ -561,7 +562,7 @@ def editItem(category_id, item_id):
             editedItem.category_id = request.form['category_id']
         if request.files['inputFile']:
             file = request.files['inputFile']
-            UPLOAD_FOLDER = './static/images'
+            UPLOAD_FOLDER = img_file_path
             app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
