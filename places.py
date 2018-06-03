@@ -24,10 +24,11 @@ app = Flask(__name__)
 
 current_file_path = __file__
 current_file_dir = os.path.dirname(__file__)
-other_file_path = os.path.join(current_file_dir, "client_secrets.json")
+google_file_path = os.path.join(current_file_dir, "client_secrets.json")
+fb_file_path = os.path.join(current_file_dir, "fb_client_secrets.json")
 
 CLIENT_ID = json.loads(
-    open(other_file_path, 'r').read())['web']['client_id']
+    open(google_file_path, 'r').read())['web']['client_id']
 APPLICATION_NAME = "Places to visit Application"
 
 
@@ -71,10 +72,10 @@ def fbconnect():
     access_token = request.data.decode("utf-8")
     print("access token received %s " % access_token)
 
-    app_id = json.loads(open('fb_client_secrets.json', 'r').read())[
+    app_id = json.loads(open(fb_file_path, 'r').read())[
         'web']['app_id']
     app_secret = json.loads(
-        open('fb_client_secrets.json', 'r').read())['web']['app_secret']
+        open(fb_file_path, 'r').read())['web']['app_secret']
     url = 'https://graph.facebook.com/oauth/access_token?grant_type='\
           'fb_exchange_token&client_id=%s&client_secret='\
           '%s&fb_exchange_token=%s' % (app_id, app_secret, access_token)
@@ -166,7 +167,7 @@ def gconnect():
 
     try:
         # Upgrade the authorization code into a credentials object
-        oauth_flow = flow_from_clientsecrets('client_secrets.json', scope='')
+        oauth_flow = flow_from_clientsecrets(google_file_path, scope='')
         oauth_flow.redirect_uri = 'postmessage'
         credentials = oauth_flow.step2_exchange(code)
     except FlowExchangeError:
