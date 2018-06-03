@@ -22,8 +22,12 @@ from functools import wraps
 
 app = Flask(__name__)
 
+current_file_path = __file__
+current_file_dir = os.path.dirname(__file__)
+other_file_path = os.path.join(current_file_dir, "client_secrets.json")
+
 CLIENT_ID = json.loads(
-    open('/catalog/calalog/client_secrets.json', 'r').read())['web']['client_id']
+    open(other_file_path, 'r').read())['web']['client_id']
 APPLICATION_NAME = "Places to visit Application"
 
 
