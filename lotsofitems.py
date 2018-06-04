@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, DateTime, LargeBinary
 from sqlalchemy.orm import sessionmaker
 
-from catalog.database_setup import Category, Base, Item, User
+from database_setup import Category, Base, Item, User
 import datetime
 
 engine = create_engine('postgresql://catalog:password@localhost/categoryitemwithusers')
