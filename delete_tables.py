@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, DateTime, LargeBinary, Column, ForeignKey, Integer, String, DateTime
 from sqlalchemy.orm import sessionmaker
 
-from database_setup import Category, Base, Item, User, Admin
+from database_setup import Category, Base, Item, User
 import datetime
 from places import getUserID, getAdminID
 
