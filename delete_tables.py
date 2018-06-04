@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker
 
 from database_setup import Category, Base, Item, User
 import datetime
-from places import getUserID, getAdminID
+#from places import getUserID, getAdminID
 
 engine = create_engine('postgresql://catalog:password@localhost/categoryitemwithusers')
 # Bind the engine to the metadata of the Base class so that the
