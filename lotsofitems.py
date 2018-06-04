@@ -55,7 +55,7 @@ session.commit()
 
 menuItem2 = Item(user_id=1, name="Myrtle Beach, SC and Orange Beach, AL", description="On the first day, we drove along I-10 through Louisiana to a country road that went to Atlanta, taking about 12 hours. We stayed in a Fairfield Marriott for 1 night and ate at a place called Love’s Seafood., then drove 3 hours to Congaree National Park the next day. Be warned- mosquitoes are serious here! We stayed all day, then drove another 3 hours to our Marriott Resort & Spa. There,we ate at a nearby Benjamin’s Calabash Seafood Buffet. We stayed at our hotel for 3 nights visiting Broadway at the Beach, where we saw many big fishes in the water and also visited the Wonderworks there which had some rides. We ate at Chesapeake House and Bimini’s Seafood at Myrtle beach. Afterwards, we visited the Charleston and stayed at a Andell Inn Marriott on Kiawah Island, whic is mainly for golfing",
                      price=1250, category=Category1, date =datetime.datetime.now(), file_name = "Myrtle-Beach-Marriott-Resort-2.jpg", state ="TEXAS", method="Drive") #, data= f.read())
-session.add(mnuItem2)
+session.add(menuItem2)
 session.commit()
 
 
