@@ -21,11 +21,12 @@ session = DBSession()
 
 
 # Create dummy user
-User1 = User(name="YY WU", email="yanyanwu1999@gmail.com",
-	             picture='https://lh3.googleusercontent.com/-M95t_dOuLBQ/AAAAAAAAAAI/AAAAAAAAACo/YdEEU7_5-YA/photo.jpg')
-
-session.add(User1)
-session.commit()
+user_id = getUserID("yanyanwu1999@gmail.com")
+if not user_id:
+       User1 = User(name="YY WU", email="yanyanwu1999@gmail.com",
+                    picture='https://lh3.googleusercontent.com/-M95t_dOuLBQ/AAAAAAAAAAI/AAAAAAAAACo/YdEEU7_5-YA/photo.jpg')
+       session.add(User1)
+       session.commit()
 
 # Create category
 Category1 = Category(user_id=1, name="Beaches")
