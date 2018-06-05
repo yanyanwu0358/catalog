@@ -34,7 +34,7 @@ CLIENT_ID = json.loads(
 APPLICATION_NAME = "Places to visit Application"
 
 # Connect to Database and create database session
-engine = create_engine('postgresql://catalog:password@localhost/categoryitemwithusers')
+engine = create_engine('postgresql://catalog:password@localhost/categoryitem')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
