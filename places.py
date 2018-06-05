@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, jsonify
 from flask import g, url_for, flash
 from sqlalchemy import create_engine, asc, desc, DateTime, func
 from sqlalchemy.orm import sessionmaker
-from database_setup import Base, Category, Item, User, VisitorVoting
+from catalog.database_setup import Base, Category, Item, User, VisitorVoting
 from flask import session as login_session
 import random
 import string
@@ -17,7 +17,7 @@ from werkzeug.utils import secure_filename
 import os
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy import func
-from profanity_filter import Filter
+from catalog.profanity_filter import Filter
 from functools import wraps
 
 app = Flask(__name__)
