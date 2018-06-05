@@ -28,11 +28,11 @@ session.add(User1)
 session.commit()
 
 # Create category
-Category1 = Category(user_id=2, name="Beaches")
+Category1 = Category(user_id=User1, name="Beaches")
 session.add(Category1)
 session.commit()
 
-Category2 = Category(user_id=1, name="Cities")
+Category2 = Category(user_id=User1, name="Cities")
 session.add(Category2)
 session.commit()
 
